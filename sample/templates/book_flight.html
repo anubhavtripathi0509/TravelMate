@@ -1,0 +1,11 @@
+<h1>Book Flight: {{ flight.flight }}</h1>
+<p>Departure: {{ flight.departure_palce }} at {{ flight.departure_timeHours }}:{{ flight.departure_timeMinutes }}</p>
+<p>Arrival: {{ flight.arrival_place }} at {{ flight.arrival_timeHours }}:{{ flight.arrival_timeMinutes }}</p>
+<p>Fare: ₹{{ flight.fare }} per seat</p>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="seats">Number of Seats:</label>
+    <input type="number" name="seats" min="1" max="{{ flight.seats_available }}" required>
+    <button type="submit">Book Now</button>
+</form>
